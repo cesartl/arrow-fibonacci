@@ -5,6 +5,10 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.Assertions.*
 import java.math.BigInteger
 
+data class Timed<T>(val timeMs: Long, val value: T)
+
+data class Benchmark(val n: BigInteger, val timeMs: Long, val bits: Int)
+
 internal class FibonacciTest {
 
     @Test
@@ -19,21 +23,22 @@ internal class FibonacciTest {
     internal fun fibonacciBigNumbers() {
 //        println(Fibonacci.fibonacciFast(1000000.toBigInteger()).bitLength())
         var i = 100000.toBigInteger()
-        val results = mutableListOf<Pair<BigInteger, Long>>()
-        while (i < 50000000.toBigInteger()) {
-            results.add(i to time { Fibonacci.fibonacciFast(i) })
+        val results = mutableListOf<Benchmark>()
+        while (i < 2000000.toBigInteger()) {
+            val (timeMs, v) = time { Fibonacci.fibonacciFast(i) }
+            results.add(Benchmark(i, timeMs, v.bitLength()))
             i *= BigInteger.TWO
         }
-        println("n,time")
-        results.forEach { (n, time) ->
-            print("$n,$time")
+        println("n,time,bits")
+        results.forEach { (n, time, bits) ->
+            print("$n,$time,$bits")
             println()
         }
     }
 
-    private fun <T> time(f: () -> T): Long {
+    private fun <T> time(f: () -> T): Timed<T> {
         val start = System.currentTimeMillis()
-        f()
-        return System.currentTimeMillis() - start
+        val v = f()
+        return Timed(System.currentTimeMillis() - start, v)
     }
 }

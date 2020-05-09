@@ -1,0 +1,50 @@
+\begin{bmatrix}
+f(n+1) \\ f(n+2)
+\end{bmatrix}
+=
+\begin{bmatrix}
+0 & 1 \\ b & a
+\end{bmatrix}
+\times
+\begin{bmatrix}
+f(n) \\ f(n+1)
+\end{bmatrix}
+---
+\begin{bmatrix}
+f(n+1) \\ f(n+2)
+\end{bmatrix}
+=
+\begin{bmatrix}
+0 & 1 \\ b & a
+\end{bmatrix}
+\times
+\begin{bmatrix}
+f(n) \\ f(n+1)
+\end{bmatrix}
+=
+\begin{bmatrix}
+0 & 1 \\ b & a
+\end{bmatrix}
+\times
+\begin{bmatrix}
+0 & 1 \\ b & a
+\end{bmatrix}
+\times
+\begin{bmatrix}
+f(n-1) \\ f(n)
+\end{bmatrix}
+=
+\begin{bmatrix}
+0 & 1 \\ b & a
+\end{bmatrix}
+\times
+\ldots
+\times
+\begin{bmatrix}
+0 & 1 \\ b & a
+\end{bmatrix}
+\times
+\begin{bmatrix}
+\alpha \\ \beta
+\end{bmatrix}
+---
