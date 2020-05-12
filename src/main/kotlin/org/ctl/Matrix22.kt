@@ -19,6 +19,10 @@ data class Matrix22(
     companion object {
         val identity = Matrix22(BigInteger.ONE, BigInteger.ZERO, BigInteger.ZERO, BigInteger.ONE)
     }
+
+    override fun toString(): String {
+       return "|$x00\t$x01|\n|$x10\t$x11|\n"
+    }
 }
 
 interface Matrix22Monoid : Monoid<Matrix22> {

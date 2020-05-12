@@ -1,37 +1,37 @@
 \begin{bmatrix}
-f(n+1) \\ f(n+2)
-\end{bmatrix}
-=
-\begin{bmatrix}
-0 & 1 \\ b & a
-\end{bmatrix}
-\times
-\begin{bmatrix}
-f(n) \\ f(n+1)
-\end{bmatrix}
----
-\begin{bmatrix}
-f(n+1) \\ f(n+2)
-\end{bmatrix}
-=
-\begin{bmatrix}
-0 & 1 \\ b & a
-\end{bmatrix}
-\times
-\begin{bmatrix}
 f(n) \\ f(n+1)
 \end{bmatrix}
 =
-\begin{bmatrix}
-0 & 1 \\ b & a
-\end{bmatrix}
-\times
 \begin{bmatrix}
 0 & 1 \\ b & a
 \end{bmatrix}
 \times
 \begin{bmatrix}
 f(n-1) \\ f(n)
+\end{bmatrix}
+---
+\begin{bmatrix}
+f(n) \\ f(n+1)
+\end{bmatrix}
+=
+\begin{bmatrix}
+0 & 1 \\ b & a
+\end{bmatrix}
+\times
+\begin{bmatrix}
+f(n-1) \\ f(n)
+\end{bmatrix}
+=
+\begin{bmatrix}
+0 & 1 \\ b & a
+\end{bmatrix}
+\times
+\begin{bmatrix}
+0 & 1 \\ b & a
+\end{bmatrix}
+\times
+\begin{bmatrix}
+f(n-2) \\ f(n-1)
 \end{bmatrix}
 =
 \begin{bmatrix}
@@ -47,4 +47,12 @@ f(n-1) \\ f(n)
 \begin{bmatrix}
 \alpha \\ \beta
 \end{bmatrix}
+---
+C(n) = \sum_{i=0}^{\log n} \mathcal{O}\left( (2^{i})^{k} \right) = \mathcal{O}\left( 2^{k \log n}\right) = \mathcal{O} \left( n^{k} \right)
+---
+x^{n} =
+\begin{cases}
+ & (x^2)^{\frac{n}{2}}, \text{ if } x \text{ is even } \\
+ &x(x^2)^{\frac{n-1}{2}}, \text{ if } x \text{ is odd } \\
+\end{cases}
 ---
