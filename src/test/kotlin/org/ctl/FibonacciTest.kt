@@ -1,8 +1,7 @@
 package org.ctl
 
+import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
-
-import org.junit.jupiter.api.Assertions.*
 import java.math.BigInteger
 
 data class Timed<T>(val timeMs: Long, val value: T)
@@ -30,6 +29,7 @@ internal class FibonacciTest {
 
     @Test
     internal fun matrix() {
+        2.toBigInteger().pow()
         (0 until 20).forEach {
             val n = it.toBigInteger()
             println(Fibonacci.fibonacciMatrix(n))
@@ -67,6 +67,7 @@ internal class FibonacciTest {
         )
         val start = 40000.toBigInteger()
         val end = 800000.toBigInteger()
+        Int.multMonoid()
         val rounds = 3
         val warmup = 2
         val results = mutableMapOf<BigInteger, MutableMap<String, MutableList<Long>>>()
